@@ -1,5 +1,6 @@
 package com.company.models;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Objects;
@@ -8,13 +9,13 @@ public class Workers {
     private int id;
     private String surname;
     private String name;
-    private BigInteger salary;
+    private BigDecimal salary;
     private List<Department> idDepartment;
 
     public Workers() {
     }
 
-    public Workers(int id, String surname, String name, BigInteger salary, List<Department> idDepartment) {
+    public Workers(int id, String surname, String name, BigDecimal salary, List<Department> idDepartment) {
         this.id = id;
         this.surname = surname;
         this.name = name;
@@ -46,11 +47,11 @@ public class Workers {
         this.name = name;
     }
 
-    public BigInteger getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(BigInteger salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 
