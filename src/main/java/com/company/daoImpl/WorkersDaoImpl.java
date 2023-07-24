@@ -4,6 +4,7 @@ import com.company.connection.ConnectionFactory;
 import com.company.dao.WorkersDao;
 import com.company.models.Department;
 import com.company.models.Workers;
+import com.company.models.WorkersProjects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +30,10 @@ public class WorkersDaoImpl implements WorkersDao {
             "values(?,?,?,?)";
 
     private static String queryUpdate = "update workers set surname=?, name=?, salary=?, id_department=? where id = ?";
-
+    private static String findByDepartment = "select workers.id, workers.surname, workers.name, workers.salary, workers.id_department\n" +
+            "from workers\n" +
+            "inner join departments d on d.id = workers.id_department\n" +
+            "where d.name = ?";
     @Autowired
     private DepartmentDaoImpl departmentDao;
 
@@ -42,10 +46,15 @@ public class WorkersDaoImpl implements WorkersDao {
             ps.setInt(1,id);
             rs = ps.executeQuery();
             while (rs.next()){
+                int idDep = 0;
                 workers.setId(rs.getInt("id"));
                 workers.setSurname(rs.getString("surname"));
                 workers.setName(rs.getString("name"));
                 workers.setSalary(rs.getBigDecimal("salary"));
+                idDep = rs.getInt("id_department");
+
+                Department department = departmentDao.findById(idDep);
+                workers.setDepartment(department);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -206,5 +215,37 @@ public class WorkersDaoImpl implements WorkersDao {
         }
         return workers;
 
+    }
+
+    public List<Workers> findWorkersByDepartment(Department department){
+        List<Workers> workersList = new ArrayList<>();
+        con = ConnectionFactory.getConnection();
+        try{
+            ps = con.prepareStatement(findByDepartment);
+            ps.setString(1, department.getName());
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int idDep = 0;
+                Workers workers = new Workers();
+                workers.setId(rs.getInt("id"));
+                workers.setSurname(rs.getString("surname"));
+                workers.setName(rs.getString("name"));
+                workers.setSalary(rs.getBigDecimal("salary"));
+                //workers.setIdDep(rs.getInt("id_department"));
+                idDep = rs.getInt("id_department");
+                Department dep = departmentDao.findById(idDep);
+                workers.setDepartment(dep);
+                workersList.add(workers);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return workersList;
     }
 }

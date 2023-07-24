@@ -63,4 +63,15 @@ public class WorkersController {
         this.workersDao.update(id,workers);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @RequestMapping(value = "/find", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<Workers>> findWorkersByProject(@RequestBody Department department){
+        List<Workers> workerss = this.workersDao.findWorkersByDepartment(department);
+        if(workerss.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else{
+            return new ResponseEntity<>(workerss, HttpStatus.OK);
+        }
+
+    }
 }
