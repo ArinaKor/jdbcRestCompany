@@ -49,6 +49,16 @@ public class DepartmentController {
            return new ResponseEntity<>(department, HttpStatus.OK);
        }
     }
+    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Department> save(@RequestBody Department department){
+       this.departmentDao.save(department);
+       return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Department> update(@PathVariable("id") int id, @RequestBody Department department){
+        this.departmentDao.update(id,department);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 

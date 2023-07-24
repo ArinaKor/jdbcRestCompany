@@ -9,25 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dc1caa7-1670-4923-ad20-a1b72fb50e3c" name="Changes" comment="add classes">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/config/WebAppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/DepartmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/ProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/WorkersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/DepartmentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/ProjectsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/WorkersDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/DepartmentDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/ProjectsDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/WorkersDaoImpl.java" afterDir="false" />
+    <list default="true" id="0dc1caa7-1670-4923-ad20-a1b72fb50e3c" name="Changes" comment="add crud in departments, projects, workers(without save(insert), without crud in projects_workers, without another queries)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/WorkersProjectsDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/connection/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/connection/ConnectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/controllers/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/controllers/WorkersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/WorkersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/DepartmentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/dao/ProjectsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/ProjectsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/dao/WorkersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/WorkersDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/DepartmentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/DepartmentDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/ProjectsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/ProjectsDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/WorkersDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/WorkersDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/models/Workers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/models/Workers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/spring-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/spring-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/models/WorkersProjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/models/WorkersProjects.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +33,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -55,6 +50,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2SyUQYKErBTftrS0ioYWhqNfF8r" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -81,6 +79,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.84" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.84" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER" value="false" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="jdbcRestCompany:war exploded">
@@ -177,7 +176,7 @@
       <option name="presentableId" value="Default" />
       <updated>1690118300420</updated>
       <workItem from="1690118301896" duration="217000" />
-      <workItem from="1690118537957" duration="17549000" />
+      <workItem from="1690118537957" duration="32248000" />
     </task>
     <task id="LOCAL-00001" summary="add classes">
       <created>1690125461094</created>
@@ -186,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690125461094</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add crud in departments, projects, workers(without save(insert), without crud in projects_workers, without another queries)">
+      <created>1690145137931</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690145137931</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +211,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add classes" />
+    <MESSAGE value="add crud in departments, projects, workers(without save(insert), without crud in projects_workers, without another queries)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add crud in departments, projects, workers(without save(insert), without crud in projects_workers, without another queries)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/company/daoImpl/DepartmentDaoImpl.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

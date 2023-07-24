@@ -21,16 +21,18 @@ public class DepartmentDaoImpl implements DepartmentDao {
     private static String findByIdsql = "SELECT * FROM departments where id = ?";
     private static String queryFindAll = "Select * From departments";
     private static String queryDelete = "delete from departments where id=?";
+    private static String queryInsert = "INSERT into departments(name) values (?)";
+    private static String queryUpdate = "Update departments set name=? where id = ?";
 
     @Override
     public Department findById(int id) {
         Department department = new Department();
         con = ConnectionFactory.getConnection();
-        try{
+        try {
             ps = con.prepareStatement(findByIdsql);
-            ps.setInt(1,id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 department.setId(rs.getInt("id"));
                 department.setName(rs.getString("name"));
             }
@@ -50,20 +52,20 @@ public class DepartmentDaoImpl implements DepartmentDao {
     public List<Department> findAll() {
         List<Department> departments = new ArrayList<>();
         con = ConnectionFactory.getConnection();
-        try{
+        try {
 
             ps = con.prepareStatement(queryFindAll);
 
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Department department = new Department();
                 department.setId(rs.getInt("id"));
                 department.setName(rs.getString("name"));
                 departments.add(department);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 con.close();
             } catch (SQLException ex) {
@@ -76,7 +78,42 @@ public class DepartmentDaoImpl implements DepartmentDao {
 
     @Override
     public void save(Department department) {
+        con = ConnectionFactory.getConnection();
+        try {
+            ps = con.prepareStatement(queryInsert);
+            ps.setString(1, department.getName());
+            ps.executeUpdate();
+            //rs = ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
 
+    }
+
+    @Override
+    public void update(int id, Department department) {
+        con = ConnectionFactory.getConnection();
+        try {
+            ps = con.prepareStatement(queryUpdate);
+            ps.setString(1, department.getName());
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            //rs = ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
 
     }
 

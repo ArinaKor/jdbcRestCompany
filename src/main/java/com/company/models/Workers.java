@@ -1,26 +1,40 @@
 package com.company.models;
 
+import com.company.models.Department;
+
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.List;
 import java.util.Objects;
 
-public class Workers {
+public class Workers{
     private int id;
     private String surname;
     private String name;
     private BigDecimal salary;
-    private List<Department> idDepartment;
+    private Department department;
 
-    public Workers() {
+
+    @Override
+    public String toString() {
+        return "Workers{" +
+                "id=" + id +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", department=" + department +
+                '}';
     }
 
-    public Workers(int id, String surname, String name, BigDecimal salary, List<Department> idDepartment) {
-        this.id = id;
-        this.surname = surname;
-        this.name = name;
-        this.salary = salary;
-        this.idDepartment = idDepartment;
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (!(o instanceof Workers workers)) return false;
+        return getId() == workers.getId() && Objects.equals(getSurname(), workers.getSurname()) && Objects.equals(getName(), workers.getName()) && Objects.equals(getSalary(), workers.getSalary()) && Objects.equals(getDepartment(), workers.getDepartment());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getSurname(), getName(), getSalary(), getDepartment());
     }
 
     public int getId() {
@@ -55,34 +69,22 @@ public class Workers {
         this.salary = salary;
     }
 
-    public List<Department> getIdDepartment() {
-        return idDepartment;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setIdDepartment(List<Department> idDepartment) {
-        this.idDepartment = idDepartment;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Workers workers)) return false;
-        return getId() == workers.getId() && Objects.equals(getSurname(), workers.getSurname()) && Objects.equals(getName(), workers.getName()) && Objects.equals(getSalary(), workers.getSalary()) && Objects.equals(getIdDepartment(), workers.getIdDepartment());
+    public Workers() {
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getSurname(), getName(), getSalary(), getIdDepartment());
-    }
-
-    @Override
-    public String toString() {
-        return "Workers{" +
-                "id=" + id +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", salary=" + salary +
-                ", idDepartment=" + idDepartment +
-                '}';
+    public Workers(int id, String surname, String name, BigDecimal salary, Department department) {
+        this.id = id;
+        this.surname = surname;
+        this.name = name;
+        this.salary = salary;
+        this.department = department;
     }
 }

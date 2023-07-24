@@ -1,15 +1,13 @@
 package com.company.controllers;
 
 import com.company.daoImpl.ProjectsDaoImpl;
+import com.company.models.Department;
 import com.company.models.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -49,5 +47,15 @@ public class ProjectController {
         else{
             return new ResponseEntity<>(project, HttpStatus.OK);
         }
+    }
+    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Project> save(@RequestBody Project project){
+        this.projectDao.save(project);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Project> update(@PathVariable("id") int id, @RequestBody Project project){
+        this.projectDao.update(id,project);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

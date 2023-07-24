@@ -21,6 +21,8 @@ public class ProjectsDaoImpl implements ProjectsDao {
     private static String findByIdsql = "SELECT * FROM project where id = ?";
     private static String queryFindAll = "Select * From project";
     private static String queryDelete = "delete from project where id=?";
+    private static String queryInsert = "insert into project(name, client) values (?,?)";
+    private static String queryUpdate = "update project set name=?, client=? where id = ?";
 
     @Override
     public Project findById(int id) {
@@ -79,7 +81,22 @@ public class ProjectsDaoImpl implements ProjectsDao {
 
     @Override
     public void save(Project project) {
-
+        con = ConnectionFactory.getConnection();
+        try {
+            ps = con.prepareStatement(queryInsert);
+            ps.setString(1, project.getName());
+            ps.setString(2, project.getClient());
+            ps.executeUpdate();
+            //rs = ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
 
     }
 
@@ -109,5 +126,26 @@ public class ProjectsDaoImpl implements ProjectsDao {
         }
         return project;
 
+    }
+
+    @Override
+    public void update(int id, Project project) {
+        con = ConnectionFactory.getConnection();
+        try {
+            ps = con.prepareStatement(queryUpdate);
+            ps.setString(1, project.getName());
+            ps.setString(2, project.getClient());
+            ps.setInt(3, id);
+            ps.executeUpdate();
+            //rs = ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

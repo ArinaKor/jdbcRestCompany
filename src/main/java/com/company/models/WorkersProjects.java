@@ -4,50 +4,51 @@ import java.util.List;
 import java.util.Objects;
 
 public class WorkersProjects {
-    private List<Workers> idWorker;
-    private List<Project> idProject;
+    private Workers worker;
+    private Project project;
 
     public WorkersProjects() {
+
     }
 
-    public WorkersProjects(List<Workers> idWorker, List<Project> idProject) {
-        this.idWorker = idWorker;
-        this.idProject = idProject;
+    public WorkersProjects(Workers worker, Project project) {
+        this.worker = worker;
+        this.project = project;
     }
 
-    public List<Workers> getIdWorker() {
-        return idWorker;
+    public Workers getWorker() {
+        return worker;
     }
 
-    public void setIdWorker(List<Workers> idWorker) {
-        this.idWorker = idWorker;
+    public void setWorker(Workers worker) {
+        this.worker = worker;
     }
 
-    public List<Project> getIdProject() {
-        return idProject;
+    public Project getProject() {
+        return project;
     }
 
-    public void setIdProject(List<Project> idProject) {
-        this.idProject = idProject;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof WorkersProjects that)) return false;
-        return Objects.equals(getIdWorker(), that.getIdWorker()) && Objects.equals(getIdProject(), that.getIdProject());
+        return Objects.equals(getWorker(), that.getWorker()) && Objects.equals(getProject(), that.getProject());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdWorker(), getIdProject());
+        return Objects.hash(getWorker(), getProject());
     }
 
     @Override
     public String toString() {
         return "WorkersProjects{" +
-                "idWorker=" + idWorker +
-                ", idProject=" + idProject +
+                "worker=" + worker +
+                ", project=" + project +
                 '}';
     }
 }
