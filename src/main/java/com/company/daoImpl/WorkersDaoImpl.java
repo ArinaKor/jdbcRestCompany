@@ -199,10 +199,15 @@ public class WorkersDaoImpl implements WorkersDao {
             ps.setInt(1,id);
             rs = ps.executeQuery();
             while (rs.next()){
+                int idDep = 0;
                 workers.setId(rs.getInt("id"));
                 workers.setSurname(rs.getString("surname"));
                 workers.setName(rs.getString("name"));
                 workers.setSalary(rs.getBigDecimal("salary"));
+                idDep = rs.getInt("id_department");
+
+                Department department = departmentDao.findById(idDep);
+                workers.setDepartment(department);
             }
         } catch (SQLException e) {
             e.printStackTrace();

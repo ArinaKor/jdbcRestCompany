@@ -37,7 +37,7 @@ public class ProjectController {
         }
 
     }
-    @RequestMapping(value = "/delete/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/delete/{id}", method=RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Project> delete(@PathVariable("id") int id){
         Project project = this.projectDao.findById(id);
         this.projectDao.delete(id);

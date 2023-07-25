@@ -10,6 +10,6 @@ public interface WorkersProjectsDao {
    // WorkersProjects findById(int id);
     List<WorkersProjects> findAll();
     void save(WorkersProjects workers);
-    WorkersProjects delete(int id);
-    void update(int id, Workers workers);
+    void delete(int id_worker, int id_project);
+    void update(int id_worker, int id_project, WorkersProjects workersProjects);
 }

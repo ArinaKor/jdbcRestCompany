@@ -41,7 +41,7 @@ public class WorkersController {
         }
 
     }
-    @RequestMapping(value = "/delete/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/delete/{id}", method=RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Workers> delete(@PathVariable("id") int id){
         Workers workers = this.workersDao.findById(id);
         this.workersDao.delete(id);

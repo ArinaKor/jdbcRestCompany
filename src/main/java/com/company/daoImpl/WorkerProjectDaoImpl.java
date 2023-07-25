@@ -44,6 +44,9 @@ public class WorkerProjectDaoImpl implements WorkersProjectsDao {
             "inner join project p on p.id = wp.id_project\n" +
             "where p.name= ? and p.client=?";
 
+    private static String queryInsert = "Insert into workers_projects values (?,?)";
+    private static String queryDelete = "delete from workers_projects where workers_projects.id_worker=? and workers_projects.id_project=?";
+    private static String queryUpdate = "update workers_projects set id_worker=?, id_project=? where id_worker=? and id_project=? ";
 
     @Override
     public List<WorkersProjects> findAll() {
@@ -75,16 +78,70 @@ public class WorkerProjectDaoImpl implements WorkersProjectsDao {
 
     @Override
     public void save(WorkersProjects workers) {
+        con = ConnectionFactory.getConnection();
+        try {
+            ps = con.prepareStatement(queryInsert);
+            Workers workers1 = workersDao.findById(workers.getWorker().getId());
+            ps.setInt(1, workers1.getId());
+            Project project = projectsDao.findById(workers.getProject().getId());
+            ps.setInt(2, project.getId());
 
+            ps.executeUpdate();
+            //rs = ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     @Override
-    public WorkersProjects delete(int id) {
-        return null;
+    public void delete(int id_worker, int id_project) {
+        WorkersProjects workersProjects = new WorkersProjects();
+
+        con = ConnectionFactory.getConnection();
+        try{
+            ps = con.prepareStatement(queryDelete);
+            ps.setInt(1,id_worker);
+            ps.setInt(2, id_project);
+           ps.executeUpdate();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     @Override
-    public void update(int id, Workers workers) {
+    public void update(int id_worker, int id_project, WorkersProjects workersProjects) {
+        con = ConnectionFactory.getConnection();
+        try {
+            ps = con.prepareStatement(queryUpdate);
+            ps.setInt(1, workersProjects.getWorker().getId());
+            ps.setInt(2, workersProjects.getProject().getId());
+            ps.setInt(3, id_worker);
+            ps.setInt(4, id_project);
+            ps.executeUpdate();
+            //rs = ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
 
     }
 

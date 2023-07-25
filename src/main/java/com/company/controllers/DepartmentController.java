@@ -2,6 +2,7 @@ package com.company.controllers;
 
 import com.company.daoImpl.DepartmentDaoImpl;
 import com.company.models.Department;
+import org.apache.http.entity.StringEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -38,7 +39,7 @@ public class DepartmentController {
        }
 
     }
-    @RequestMapping(value = "/delete/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/delete/{id}", method=RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Department> delete(@PathVariable("id") int id){
        Department department = this.departmentDao.findById(id);
        this.departmentDao.delete(id);
