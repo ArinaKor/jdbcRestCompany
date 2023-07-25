@@ -9,16 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dc1caa7-1670-4923-ad20-a1b72fb50e3c" name="Changes" comment="add crud in departments, projects, workers,queries with find without crud&#10; in projects_workers)">
+    <list default="true" id="0dc1caa7-1670-4923-ad20-a1b72fb50e3c" name="Changes" comment="add crud in departments, projects, workers,projects_workers,queries with find">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/controllers/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/controllers/WorkerProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/WorkerProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/controllers/WorkersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/controllers/WorkersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/dao/WorkersProjectsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/WorkersProjectsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/WorkerProjectDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/WorkerProjectDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/WorkersDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/WorkersDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/dao/DepartmentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/DepartmentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/daoImpl/DepartmentDaoImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +169,7 @@
       <updated>1690118300420</updated>
       <workItem from="1690118301896" duration="217000" />
       <workItem from="1690118537957" duration="33344000" />
-      <workItem from="1690233020919" duration="5566000" />
+      <workItem from="1690233020919" duration="7086000" />
     </task>
     <task id="LOCAL-00001" summary="add classes">
       <created>1690125461094</created>
@@ -204,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690236498309</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add crud in departments, projects, workers,projects_workers,queries with find">
+      <created>1690272167103</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1690272167103</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +228,8 @@
     <MESSAGE value="add crud in departments, projects, workers(without save(insert), without crud in projects_workers, without another queries)" />
     <MESSAGE value="add crud in departments, projects, workers, without crud&#10; in projects_workers, without another queries)" />
     <MESSAGE value="add crud in departments, projects, workers,queries with find without crud&#10; in projects_workers)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add crud in departments, projects, workers,queries with find without crud&#10; in projects_workers)" />
+    <MESSAGE value="add crud in departments, projects, workers,projects_workers,queries with find" />
+    <option name="LAST_COMMIT_MESSAGE" value="add crud in departments, projects, workers,projects_workers,queries with find" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

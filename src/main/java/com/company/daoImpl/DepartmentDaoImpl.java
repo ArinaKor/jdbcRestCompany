@@ -97,11 +97,11 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
-    public void update(int id, Department department) {
+    public void update(int id, String name) {
         con = ConnectionFactory.getConnection();
         try {
             ps = con.prepareStatement(queryUpdate);
-            ps.setString(1, department.getName());
+            ps.setString(1, name);
             ps.setInt(2, id);
             ps.executeUpdate();
             //rs = ps.execute();
@@ -116,7 +116,6 @@ public class DepartmentDaoImpl implements DepartmentDao {
         }
 
     }
-
     @Override
     public Department delete(int id) {
         Department department = new Department();
